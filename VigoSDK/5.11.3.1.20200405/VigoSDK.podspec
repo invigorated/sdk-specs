@@ -21,6 +21,7 @@ Pod::Spec.new do |s|
   }
   s.author           = { 'VIGO' => 'admin@vigo.one' }
   s.platform         = :ios, :tvos
+  s.swift_version    = '5.1.3'
   s.ios.deployment_target  = '9.0'
   s.tvos.deployment_target = '9.0'
 
