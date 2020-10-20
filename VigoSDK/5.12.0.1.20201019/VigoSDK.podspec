@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'VigoSDK'
-  s.version          = '5.11.3.1.20200428'
+  s.version          = '5.12.0.1.20201019'
   s.summary          = 'Vigo SDK library for iOS devices'
   s.homepage         = "https://vigo.one/"
   s.license          = { :type => 'CUSTOM', :text => <<-LICENSE
