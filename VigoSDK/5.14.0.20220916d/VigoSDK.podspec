@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'VigoSDK'
-  s.version          = '5.14.0.20220916_dev'
+  s.version          = '5.14.0.20220916d'
   s.summary          = 'Vigo SDK library for iOS devices'
   s.homepage         = "https://vigo.one/"
   s.license          = { :type => 'CUSTOM', :text => <<-LICENSE
@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target  = '11.0'
   s.tvos.deployment_target = '11.0'
 
-  s.source           = { :http => 'https://repo.vigo.ru/repository/sdk-vigo/ios/v5.14.0.20220916_dev/VigoSDK.zip',
+  s.source           = { :http => 'https://repo.vigo.ru/repository/sdk-vigo/ios/v5.14.0.20220916d/VigoSDK.zip',
                          :headers => [ "Authorization:Basic #{ENV['VIGO_AUTH']}" ] }
   s.ios.vendored_frameworks = 'Vigo.framework'
   s.tvos.vendored_frameworks = 'Vigotvios.framework'
