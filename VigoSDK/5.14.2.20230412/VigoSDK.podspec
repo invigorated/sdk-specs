@@ -1,12 +1,12 @@
 Pod::Spec.new do |s|
   s.name             = 'VigoSDK'
-  s.version          = '5.14.2.20220412'
+  s.version          = '5.14.2.20230412'
   s.summary          = 'Vigo SDK library for iOS devices'
   s.homepage         = "https://vigo.one/"
   s.license          = { :type => 'CUSTOM', :text => <<-LICENSE
     ##########################################################################################
     #
-    #   Copyright 2013 - 2022 Vigo
+    #   Copyright 2013 - 2023 Vigo
     #
     #    This source code is Vigo Confidential Proprietary
     #    This software is protected by copyright.  All rights and titles are reserved.
@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target  = '11.0'
   s.tvos.deployment_target = '11.0'
 
-  s.source           = { :http => 'https://repo.vigo.ru/repository/sdk-vigo/ios/v5.14.2.20220412/VigoSDK.zip',
+  s.source           = { :http => 'https://repo.vigo.ru/repository/sdk-vigo/ios/v5.14.2.20230412/VigoSDK.zip',
                          :headers => [ "Authorization:Basic #{ENV['VIGO_AUTH']}" ] }
   s.ios.vendored_frameworks = 'Vigo.framework'
   s.tvos.vendored_frameworks = 'Vigotvios.framework'
