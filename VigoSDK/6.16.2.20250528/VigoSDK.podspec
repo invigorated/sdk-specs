@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target  = '12.0'
   s.tvos.deployment_target = '12.0'
 
-  s.source           = { :http => 'https://repo.vigo.ru/repository/sdk-vigo/ios/v6.16.2.20250528/VigoSDK.zip'] }
+  s.source           = { :http => 'https://repo.vigo.ru/repository/sdk-vigo/ios/v6.16.2.20250528/VigoSDK.zip'}
   s.ios.vendored_frameworks = 'Vigo.xcframework'
   s.tvos.vendored_frameworks = 'Vigotvios.xcframework'
 end
