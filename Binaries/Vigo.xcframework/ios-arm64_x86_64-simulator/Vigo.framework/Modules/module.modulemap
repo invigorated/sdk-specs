@@ -1,0 +1,11 @@
+framework module Vigo {
+  umbrella header "Vigo.h"
+  export *
+
+  module * { export * }
+}
+
+module Vigo.Swift {
+  header "Vigo-Swift.h"
+  requires objc
+}

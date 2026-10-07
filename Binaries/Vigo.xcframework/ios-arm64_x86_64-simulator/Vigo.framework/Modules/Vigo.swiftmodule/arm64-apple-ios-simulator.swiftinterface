@@ -1,0 +1,443 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.2 effective-5.10 (swiftlang-6.2.0.19.9 clang-1700.3.19.1)
+// swift-module-flags: -target arm64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name Vigo
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2
+import AVFoundation
+import BackgroundTasks
+import CommonCrypto
+import CoreLocation
+import CoreTelephony
+import Foundation
+import Swift
+import SystemConfiguration
+@_exported import Vigo
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+import vigoTransportTest
+public class NetworkState {
+  public init()
+  public func networkType() -> Swift.Int16
+  public func networkSubtype() -> Swift.Int16
+  public func mobileOperator() -> Swift.String
+  @objc deinit
+}
+@objc @objcMembers public class BitrateParameters : ObjectiveC.NSObject {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(host: Swift.String?, quality: Vigo.QualityVideo, contentId: Swift.String?, actualBitrate: Swift.Int?)
+  #endif
+  @objc public init(qualityVideo: Vigo.QualityVideo, host: Swift.String, contentId: Swift.String, actualBitrate: Swift.Int)
+  @objc public init(qualityVideo: Vigo.QualityVideo, host: Swift.String, contentId: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @nonobjc convenience public init(host: Swift.String?, quality: Vigo.QualityVideo, contentId: Swift.String?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @nonobjc convenience public init(host: Swift.String?, quality: Vigo.QualityVideo, contentId: Swift.String?, bitrate: Swift.Int)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(host: Swift.String?, quality: Vigo.QualityAudio, contentId: Swift.String?, actualBitrate: Swift.Int?)
+  #endif
+  @objc public init(qualityAudio: Vigo.QualityAudio, host: Swift.String, contentId: Swift.String, actualBitrate: Swift.Int)
+  @objc public init(qualityAudio: Vigo.QualityAudio, host: Swift.String, contentId: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
+  @nonobjc convenience public init(host: Swift.String?, quality: Vigo.QualityAudio, contentId: Swift.String?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @nonobjc convenience public init(host: Swift.String?, quality: Vigo.QualityAudio, contentId: Swift.String?, bitrate: Swift.Int)
+  #endif
+  @objc deinit
+}
+public struct PingTestResult {
+  public let category: Swift.Int8
+  public let host: Swift.String
+  public let rawHostOrIp: Swift.String
+  public var stats: Vigo.MeasurementTransportStats
+}
+public class PingTester {
+  public init()
+  public func pingTask(config: Vigo.VigoTransportTestConfig.Ping, category: Swift.Int8) async -> [Vigo.PingTestResult]
+  public func meriloPingTask(config: Vigo.VigoTransportTestConfig.Ping, category: Swift.Int8) async -> [Vigo.PingTestResult]
+  @objc deinit
+}
+@objc public enum QualityVideo : Swift.Int {
+  case realunknown = -1
+  case unknown = 0
+  case auto = 100
+  case live = 99
+  case p144 = 1
+  case p240 = 2
+  case p360 = 3
+  case p480 = 4
+  case p720 = 5
+  case p1080 = 6
+  case p1140 = 7
+  case p2160 = 8
+  case p3072 = 9
+  case auto_low = 103
+  case auto_sd = 104
+  case auto_hd = 105
+  case auto_full_hd = 106
+  case auto_4k = 107
+  case auto_2k = 108
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public enum QualityAudio : Swift.Int {
+  case realunknown = -1
+  case unknown = 0
+  case auto = 100
+  case live = 99
+  case k32 = 1
+  case k64 = 2
+  case k96 = 3
+  case k128 = 4
+  case k160 = 5
+  case k192 = 6
+  case k256 = 7
+  case k320 = 8
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class NetworkHelpers {
+  @objc deinit
+}
+public class DeviceState {
+  final public let deviceModel: Swift.String
+  final public let deviceType: Vigo.DeviceType
+  public init()
+  @objc deinit
+}
+public struct VigoTransportTestConfig {
+  public let heartbeat: Vigo.VigoTransportTestConfig.Heartbeat
+  public let dns: Vigo.VigoTransportTestConfig.Dns?
+  public let bandwidth: Vigo.VigoTransportTestConfig.Bandwidth?
+  public let ping: Vigo.VigoTransportTestConfig.Ping?
+  public let videoUx: Vigo.VigoTransportTestConfig.VideoUx?
+  public let servers: [Vigo.VigoTransportTestConfig.TestServerData]?
+  public let serversLocationConfig: Vigo.VigoTransportTestConfig.TestServerSelectionConfiguration?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(test: Swift.UInt8, ttl: Swift.Int64, autoLaunch: Swift.Bool, autoLaunchInterval: Swift.Int64, autoLaunchLifetime: Swift.Int64, sessionInactiveLifetime: Swift.Int64, heartbeat: Vigo.VigoTransportTestConfig.Heartbeat, activeTrigger: Vigo.VigoTransportTestConfig.Trigger? = nil, inactiveTrigger: Vigo.VigoTransportTestConfig.Trigger? = nil, dns: Vigo.VigoTransportTestConfig.Dns? = nil, bandwidth: Vigo.VigoTransportTestConfig.Bandwidth? = nil, ping: Vigo.VigoTransportTestConfig.Ping? = nil, videoUx: Vigo.VigoTransportTestConfig.VideoUx? = nil, servers: [Vigo.VigoTransportTestConfig.TestServerData]?, serversLocationConfig: Vigo.VigoTransportTestConfig.TestServerSelectionConfiguration?)
+  #endif
+  public struct Trigger {
+    public init(minTriggerInterval: Swift.Int64, vpn: Swift.Bool, connectionTechnology: Swift.Bool, cell: Swift.Bool, cells: [Swift.Int64], location: Swift.Bool, locationStep: Swift.Int, locations: [Vigo.VigoTransportTestConfig.LocationTriggerData], appMinimized: Swift.Bool, locationRequestMode: Vigo.VigoTransportTestConfig.LocationRequestMode, locationUpdateTimeout: Swift.Int64, locationUpdateMinDistance: Swift.Int)
+  }
+  public enum LocationRequestMode : Swift.String {
+    case passive
+    case active
+    #if compiler(>=5.3) && $NonescapableTypes
+    public init?(rawValue: Swift.String)
+    #endif
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public struct LocationTriggerData {
+  }
+  public struct Ping {
+    public let activeAppTimeout: Swift.Int64
+    public let inactiveAppTimeout: Swift.Int64
+    public let stopAmount: Swift.Int
+    public let stopTimeout: Swift.Int
+    public let referenceIps: [Swift.String]
+    public let referenceHosts: [Swift.String]
+    public let disabledTechnologies: [Swift.String]
+    public init(activeAppTimeout: Swift.Int64, inactiveAppTimeout: Swift.Int64, stopAmount: Swift.Int, stopTimeout: Swift.Int, referenceIps: [Swift.String], referenceHosts: [Swift.String], disabledTechnologies: [Swift.String])
+  }
+  public struct Heartbeat {
+  }
+  public struct VideoUx {
+    public let startDelay: Swift.Int
+    public let stopTimeout: Swift.Int
+    public let disabledTechnologies: [Swift.String]
+    public let activeAppTimeout: Swift.Int
+    public let inactiveAppTimeout: Swift.Int
+    public let videoReferences: [Vigo.VigoTransportTestConfig.VideoReference]
+    public init(startDelay: Swift.Int, stopTimeout: Swift.Int, disabledTechnologies: [Swift.String], activeAppTimeout: Swift.Int, inactiveAppTimeout: Swift.Int, videoReferences: [Vigo.VigoTransportTestConfig.VideoReference])
+  }
+  public struct VideoReference {
+    public let name: Swift.String
+    public let description: Swift.String
+    public let url: Swift.String
+    public let quality: Swift.String
+    public init(name: Swift.String, description: Swift.String, url: Swift.String, quality: Swift.String)
+  }
+  public struct TestServerData {
+    public let ip: Swift.String
+    public let host: Swift.String
+    public let name: Swift.String
+    public let lat: Swift.Double
+    public let lon: Swift.Double
+    public let maxThroughput: Swift.Int
+    public let isDefault: Swift.Bool
+  }
+  public struct TestServerSelectionConfiguration {
+    public let locationMethod: Vigo.VigoTransportTestConfig.TestServerSelectionMethod?
+    public let ipLocationUrl: Swift.String?
+    public let stopAmount: Swift.Int?
+    public let stopTimeoutMills: Swift.Int?
+    #if compiler(>=5.3) && $NonescapableTypes
+    public init(locationMethod: Vigo.VigoTransportTestConfig.TestServerSelectionMethod? = nil, ipLocationUrl: Swift.String? = nil, stopAmount: Swift.Int? = nil, stopTimeoutMills: Swift.Int? = nil)
+    #endif
+  }
+  public enum TestServerSelectionMethod : Swift.String {
+    case ping
+    case distance
+    #if compiler(>=5.3) && $NonescapableTypes
+    public init?(rawValue: Swift.String)
+    #endif
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public struct Dns {
+    public init(activeAppTimeout: Swift.Int64, inactiveAppTimeout: Swift.Int64, stopAmount: Swift.Int, stopTimeout: Swift.Int, referenceHosts: [Swift.String], referenceDnsIps: [Swift.String], disabledTechnologies: [Swift.String])
+  }
+  public struct BandwidthMeasureConnectionParams {
+    public let ulMinChunkBytes: Swift.Int32
+    public let dlMinChunkBytes: Swift.Int32
+    public let ulMaxChunkBytes: Swift.Int32
+    public let dlMaxChunkBytes: Swift.Int32
+    public init(ulMinChunkBytes: Swift.Int32, dlMinChunkBytes: Swift.Int32, ulMaxChunkBytes: Swift.Int32, dlMaxChunkBytes: Swift.Int32)
+  }
+  public struct Bandwidth {
+    public let activeAppTimeout: Swift.Int64
+    public let inactiveAppTimeout: Swift.Int64
+    public let startDelay: Swift.Int
+    public let ulMaxBytes: Swift.Int
+    public let startTimeout: Swift.Int
+    public let startThreshold: Swift.Int
+    public let stopTimeout: Swift.Int
+    public let dlReferenceIps: [Swift.String]
+    public let dlReferenceHosts: [Swift.String]
+    public let ulReferenceIps: [Swift.String]
+    public let ulReferenceHosts: [Swift.String]
+    public let dlServiceIps: [Swift.String]
+    public let dlServiceHosts: [Swift.String]
+    public let ulServiceIps: [Swift.String]
+    public let ulServiceHosts: [Swift.String]
+    public let disabledTechnologies: [Swift.String]
+    public init(activeAppTimeout: Swift.Int64, inactiveAppTimeout: Swift.Int64, startDelay: Swift.Int, ulMaxBytes: Swift.Int, startTimeout: Swift.Int, startThreshold: Swift.Int, stopTimeout: Swift.Int, dlReferenceIps: [Swift.String], dlReferenceHosts: [Swift.String], ulReferenceIps: [Swift.String], ulReferenceHosts: [Swift.String], dlServiceIps: [Swift.String], dlServiceHosts: [Swift.String], ulServiceIps: [Swift.String], ulServiceHosts: [Swift.String], disabledTechnologies: [Swift.String])
+  }
+}
+@objc @objcMembers public class VigoApiService : ObjectiveC.NSObject {
+  public static var transportManagers: [Swift.String : Vigo.TransportTestConfigManager]
+  @objc public var isTempSvcid: Swift.Bool
+  @objc public init(cid: Swift.String, svcid: Swift.String, customFields: [Swift.String : Swift.String])
+  @objc public func startGaming()
+  @objc public func stopGaming()
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc public func startApiSession(_ svcid: Swift.String? = nil, _ cid: Swift.String? = nil, customFields: [Swift.String : Swift.String]? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc public func startApiSession(_ svcid: Swift.String? = nil, _ cid: Swift.String? = nil, isAutoStartOfMeasurementsEnabled: Swift.Bool, isTempSvcid: Swift.Bool = false, customFields: [Swift.String : Swift.String]? = nil)
+  #endif
+  @objc public func stopApiSession()
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc public func addSuccessApiMeasurement(category: Swift.Int8, requestRtt: Swift.Int32, requestPt: Swift.Int32, contentLength: Swift.Int64, host: Swift.String?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc public func addErrorApiMeasurement(category: Swift.Int8, requestRtt: Swift.Int32, requestPt: Swift.Int32, host: Swift.String?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc public func countFailedApiMeasurement(category: Swift.Int8, host: Swift.String?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc public func addGamingMeasurement(category: Swift.Int8, time: Swift.Int32, host: Swift.String?)
+  #endif
+  public func addTransportPingMeasurement(_ results: [Vigo.PingTestResult])
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func startBandwidthTest(config: Vigo.VigoTransportTestConfig.Bandwidth, connectionParams: Vigo.VigoTransportTestConfig.BandwidthMeasureConnectionParams?, multithreadDlEnabled: Swift.Bool, unlimitedSizeMode: Swift.Bool, multithreadUlEnabled: Swift.Bool, speedPlatoWatcherConfig: vigoTransportTest.BandwidthTesterMp.SpeedPlatoWatcherConfig, listener: any vigoTransportTest.BandwidthTestListenerMp) async
+  #endif
+  @objc convenience public init(cid: Swift.String, svcid: Swift.String)
+  @objc deinit
+  @objc public func updateSvcid(_ svcid: Swift.String)
+  @objc public func getSvcid() -> Swift.String
+  @objc public func setDebugHost(_ debugHost: Swift.String)
+}
+public struct HostAvailabilityResult {
+  public let host: Swift.String
+  public let hostName: Swift.String
+  public let availability: Vigo.HostAvailabilityStatus
+  public let averageRtt: Swift.Int64
+  public let jitter: Swift.Int64
+  public let packetLossRate: Swift.Double
+}
+public enum HostAvailabilityStatus : Any {
+  case Success
+  case Fail
+  case Error
+  public static func == (a: Vigo.HostAvailabilityStatus, b: Vigo.HostAvailabilityStatus) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public actor TransportTestConfigManager {
+  public static var updateTimeoutOnFail: Swift.Double
+  public static let shared: Vigo.TransportTestConfigManager
+  public static var latestStatic: Vigo.VigoTransportTestConfig?
+  public var latest: Vigo.VigoTransportTestConfig?
+  @objc deinit
+  @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+  @_semantics("defaultActor") nonisolated final public var unownedExecutor: _Concurrency.UnownedSerialExecutor {
+    get
+  }
+}
+public enum DeviceType : Swift.Int {
+  case unknown
+  case desktop
+  case smartphone
+  case tablet
+  case tv
+  case gameconsole
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension Vigo.DeviceType {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func encodeToString() -> Swift.String?
+  #endif
+}
+public enum ReachabilityError : Swift.Error {
+  case FailedToCreateWithAddress(Darwin.sockaddr_in)
+  case FailedToCreateWithHostname(Swift.String)
+  case UnableToSetCallback
+  case UnableToSetDispatchQueue
+}
+@available(*, unavailable, renamed: "Notification.Name.reachabilityChanged")
+public let ReachabilityChangedNotification: Foundation.NSNotification.Name
+extension Foundation.NSNotification.Name {
+  public static let reachabilityChanged: Foundation.Notification.Name
+}
+public class Reachability {
+  public typealias NetworkReachable = (Vigo.Reachability) -> ()
+  public typealias NetworkUnreachable = (Vigo.Reachability) -> ()
+  @available(*, unavailable, renamed: "Connection")
+  public enum NetworkStatus : Swift.CustomStringConvertible {
+    case notReachable, reachableViaWiFi, reachableViaWWAN
+    public var description: Swift.String {
+      get
+    }
+    public static func == (a: Vigo.Reachability.NetworkStatus, b: Vigo.Reachability.NetworkStatus) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public enum Connection : Swift.CustomStringConvertible {
+    case none, wifi, cellular
+    public var description: Swift.String {
+      get
+    }
+    public static func == (a: Vigo.Reachability.Connection, b: Vigo.Reachability.Connection) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public var whenReachable: Vigo.Reachability.NetworkReachable?
+  public var whenUnreachable: Vigo.Reachability.NetworkUnreachable?
+  @available(*, deprecated, renamed: "allowsCellularConnection")
+  final public let reachableOnWWAN: Swift.Bool
+  public var allowsCellularConnection: Swift.Bool
+  public var notificationCenter: Foundation.NotificationCenter
+  @available(*, deprecated, renamed: "connection.description")
+  public var currentReachabilityString: Swift.String {
+    get
+  }
+  @available(*, unavailable, renamed: "connection")
+  public var currentReachabilityStatus: Vigo.Reachability.Connection {
+    get
+  }
+  public var connection: Vigo.Reachability.Connection {
+    get
+  }
+  required public init(reachabilityRef: SystemConfiguration.SCNetworkReachability, usingHostname: Swift.Bool = false)
+  #if compiler(>=5.3) && $NonescapableTypes
+  convenience public init?(hostname: Swift.String)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  convenience public init?()
+  #endif
+  @objc deinit
+}
+extension Vigo.Reachability {
+  public func startNotifier() throws
+  public func stopNotifier()
+  @available(*, deprecated, message: "Please use `connection != .none`")
+  public var isReachable: Swift.Bool {
+    get
+  }
+  @available(*, deprecated, message: "Please use `connection == .cellular`")
+  public var isReachableViaWWAN: Swift.Bool {
+    get
+  }
+  @available(*, deprecated, message: "Please use `connection == .wifi`")
+  public var isReachableViaWiFi: Swift.Bool {
+    get
+  }
+  public var description: Swift.String {
+    get
+  }
+}
+@objc @objcMembers public class VigoService : ObjectiveC.NSObject {
+  @objc public init(cid: Swift.String, svcid: Swift.String, player: AVFoundation.AVPlayer, heartbeatDuringPause: Swift.Bool, bitrateParameters: Vigo.BitrateParameters, customFields: [Swift.String : Swift.String])
+  @objc public init(cid: Swift.String, svcid: Swift.String, player: AVFoundation.AVPlayer, heartbeatDuringPause: Swift.Bool, isAutoStartEnabled: Swift.Bool, bitrateParameters: Vigo.BitrateParameters, customFields: [Swift.String : Swift.String])
+  @objc convenience public init(cid: Swift.String, svcid: Swift.String, player: AVFoundation.AVPlayer, heartbeatDuringPause: Swift.Bool, bitrateParameters: Vigo.BitrateParameters)
+  @objc deinit
+  @objc public func updateSvcid(_ svcid: Swift.String)
+  @objc public func setDebugHost(_ debugHost: Swift.String)
+  @objc public func updateBitrateParameters(_ bitrateParameters: Vigo.BitrateParameters)
+  @objc public func forceStopSession()
+  @objc public func getFirstBufferingDuration() -> Swift.Int32
+}
+public struct MeasurementTransportStats {
+  public var measurementCounter: Swift.Int32
+  public var measurementPacketCounter: Swift.Int32
+  public var measurementRttCounter: Swift.Int32
+  public var measurementRtt: Swift.Int32
+  public var measurementJitterCounter: Swift.Int32
+  public var measurementJitter: Swift.Int32
+  public var measurementPacketLossCounter: Swift.Int32
+  public init(counter: Swift.Int32, packetCounter: Swift.Int32, rttCounter: Swift.Int32, rtt: Swift.Int32, jitterCounter: Swift.Int32, jitter: Swift.Int32, packetLossCounter: Swift.Int32)
+}
+extension Vigo.Reachability.Connection : Swift.Equatable {}
+extension Vigo.Reachability.Connection : Swift.Hashable {}
+extension Vigo.QualityVideo : Swift.Equatable {}
+extension Vigo.QualityVideo : Swift.Hashable {}
+extension Vigo.QualityVideo : Swift.RawRepresentable {}
+extension Vigo.QualityAudio : Swift.Equatable {}
+extension Vigo.QualityAudio : Swift.Hashable {}
+extension Vigo.QualityAudio : Swift.RawRepresentable {}
+extension Vigo.VigoTransportTestConfig.LocationRequestMode : Swift.Equatable {}
+extension Vigo.VigoTransportTestConfig.LocationRequestMode : Swift.Hashable {}
+extension Vigo.VigoTransportTestConfig.LocationRequestMode : Swift.RawRepresentable {}
+extension Vigo.VigoTransportTestConfig.TestServerSelectionMethod : Swift.Equatable {}
+extension Vigo.VigoTransportTestConfig.TestServerSelectionMethod : Swift.Hashable {}
+extension Vigo.VigoTransportTestConfig.TestServerSelectionMethod : Swift.RawRepresentable {}
+extension Vigo.HostAvailabilityStatus : Swift.Equatable {}
+extension Vigo.HostAvailabilityStatus : Swift.Hashable {}
+extension Vigo.DeviceType : Swift.Equatable {}
+extension Vigo.DeviceType : Swift.Hashable {}
+extension Vigo.DeviceType : Swift.RawRepresentable {}
+@available(*, unavailable, renamed: "Connection")
+extension Vigo.Reachability.NetworkStatus : Swift.Equatable {}
+@available(*, unavailable, renamed: "Connection")
+extension Vigo.Reachability.NetworkStatus : Swift.Hashable {}

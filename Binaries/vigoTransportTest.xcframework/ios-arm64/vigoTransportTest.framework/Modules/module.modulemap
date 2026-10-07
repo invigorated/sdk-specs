@@ -1,0 +1,8 @@
+framework module "vigoTransportTest" {
+    umbrella header "vigoTransportTest.h"
+
+    export *
+    module * { export * }
+
+    use Foundation
+}
