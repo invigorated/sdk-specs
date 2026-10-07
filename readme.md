@@ -1,0 +1,1 @@
+Vigo SDK for ux monitoring in video/audio/gaming/web services. Visit out site - vigo.tech.
