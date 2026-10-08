@@ -29,20 +29,20 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "Vigo",
-            url: "https://repo.vigo.tech/repository/sdk-vigo/ios/v6.26.2.20261009/Vigo-v6.26.2.20261009.zip",
-            checksum: "5f1fb541ec629ece111de991a69d831111f2b090f7c2bc76e4748d05dcd016dc"
+            url: "https://repo.vigo.tech/repository/sdk-vigo/ios/v6.26.2.20261011/Vigo-v6.26.2.20261011.zip",
+            checksum: "32555995c8d0535ee8001868245220ed0de313218a78ceba2550cc0483c7de9e"
         ),
 
         .binaryTarget(
             name: "vigoTransportTest",
-            url: "https://repo.vigo.tech/repository/sdk-vigo/ios/v6.26.2.20261009/VigoTransport-v6.26.2.20261009.zip",
-            checksum: "d7968fed1b698a1211b13c1d6e633603c61a480fff347e5282913748275f8da2"
+            url: "https://repo.vigo.tech/repository/sdk-vigo/ios/v6.26.2.20261011/VigoTransport-v6.26.2.20261011.zip",
+            checksum: "105fc07e57816a2899bb7ac2acdc3532f7aebaf4034151c0c2ca83ce128b6471"
         ),
 
         .binaryTarget(
             name: "Vigotvios",
-            url: "https://repo.vigo.tech/repository/sdk-vigo/ios/v6.26.2.20261009/Vigotvios-v6.26.2.20261009.zip",
-            checksum: "037b3b437a4ee0b3b27aa514c168ba90bc5f0f58af7d496c4cd9aae0ea872e31"
+            url: "https://repo.vigo.tech/repository/sdk-vigo/ios/v6.26.2.20261011/Vigotvios-v6.26.2.20261011.zip",
+            checksum: "d22bd2a41374fe15eaebd1cf003e07400b0f1ab8865bc4dad64e661dd6ea33fd"
         )
     ]
 )
